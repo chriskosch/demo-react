@@ -1,0 +1,15 @@
+#imagen base
+FROM node:alpine-16
+
+#carpeta donde trabajara docker
+WORKDIR '/app'
+
+#copiara los paquetes y instalara npm
+COPY package.json .
+RUN npm install
+
+#copiara todas las dependencias del proyecto
+COPY . .
+
+#comandos a ejecutar
+CMD ["npm", "run", "start"]
